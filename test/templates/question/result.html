@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card col-6 offset-md-3">
+    <div class="card-body">
+      <p class="card-text">Ваш результат <b>{{ res }}</b> правильных ответов из {{ amount }}!</p>
+      <p class="card-subtitle mb-2 text-muted">Процент выполнения: {{ percent|floatformat }}%.</p>
+      <button type="button" class="btn btn-light"><a class="text-decoration-none text-reset" href="{% url 'question:set_list' %}">Вернуться на главную</a></button>
+    </div>
+  </div>
+{% endblock %}

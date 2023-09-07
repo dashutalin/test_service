@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card col-6 offset-md-3">
+
+    <div class="card-body">
+      <h4 class="card-title">Тест по теме {{ group.title|lower }}</h4>
+      <p class="card-text">{{ group.desc }}</p>
+      <p class="card-subtitle mb-2 text-muted">Количество вопросов: {{ count }}</p>
+      {% if count > 0 %}
+        <button type="submit" class="btn btn-light">
+          <a class="text-decoration-none text-reset" href="{% url 'question:question' group.slug 0 %}">Начать</a>
+        </button>
+      {% else %}
+        <p class="card-subtitle mb-2 text-muted">Тест в разработке</p>
+      {% endif %}
+    </div>
+
+    <button type="button" class="btn btn-light">
+      <a class="text-decoration-none text-reset" href="{% url 'question:set_list' %}">Вернуться на главную</a>
+    </button>
+  </div>
+{% endblock %}
